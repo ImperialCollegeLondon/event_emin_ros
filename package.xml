@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>event_emin_ros</name>
+  <version>0.0.0</version>
+  <description>ROS wrapper for EventEMin</description>
+  <maintainer email="um.nunes@imperial.ac.uk">Urbano Miguel Nunes</maintainer>
+  <license>MIT</license>
+  <url type="website">https://github.com/ImperialCollegeLondon/EventEMinROS.git</url>
+  <author email="um.nunes@imperial.ac.uk">Urbano Miguel Nunes</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+	<build_depend>message_generation</build_depend>
+
+	<exec_depend>message_runtime</exec_depend>
+	
+	<depend>roscpp</depend>
+	<depend>std_msgs</depend>
+	<depend>sensor_msgs</depend>
+	<depend>dvs_msgs</depend>
+	<depend>cv_bridge</depend>
+	<depend>message_filters</depend>
+</package>

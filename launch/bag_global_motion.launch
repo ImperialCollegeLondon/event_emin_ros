@@ -1,0 +1,21 @@
+<launch>
+  <arg name="camera_ns" default="/dvs" />
+  <arg name="model" doc="possible models: affinity, isometry, rotation, similarity, translation" />
+   <!-- private default arguments -->
+  <arg name="nEvents" default="10000" />
+  <arg name="wSize" default="4" />
+  <!-- global motion estimation -->
+  <include file="$(find event_emin_ros)/launch/global_motion.launch" >
+    <arg name="camera_ns" value="$(arg camera_ns)" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="nEvents" value="$(arg nEvents)" />
+    <arg name="wSize" value="$(arg wSize)" />
+  </include>
+
+  <arg name="bag_name" doc="name of ros bag to play (no .bag extension)" />
+  <!-- rosbag player -->
+  <node name="player" pkg="rosbag" type="play" output="screen" args="$(arg bag_name).bag --topics /dvs/camera_info /dvs/events"/>
+
+  <!-- rosbag recorder -->
+  <node name="recorder" pkg="rosbag" type="record" output="screen" args="-O $(arg bag_name)_$(arg model)_$(arg nEvents)_$(arg wSize).bag /event_emin_ros/$(arg model)/vars" />
+</launch>

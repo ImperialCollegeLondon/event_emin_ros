@@ -1,0 +1,16 @@
+<launch>
+  <arg name="camera_ns" default="/camera" />
+
+  <arg name="model" doc="possible models: affinity, isometry, rotation, similarity, translation2d" />
+  <arg name="model_ns" value="/event_emin_ros/$(arg model)" />
+  <!-- private default arguments -->
+  <arg name="nEvents" default="10000" />
+  <arg name="wSize" default="4" />
+  <!-- motion estimation -->
+  <node ns="$(arg model_ns)" name="$(arg model)" pkg="event_emin_ros" type="$(arg model)" output="screen" >
+    <remap from="camera_info" to="$(arg camera_ns)/camera_info" />
+    <remap from="events" to="$(arg camera_ns)/events" />
+    <param name="nEvents" value="$(arg nEvents)" type="int" />
+    <param name="wSize" value="$(arg wSize)" type="int" />
+  </node>
+</launch>

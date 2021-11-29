@@ -1,0 +1,3 @@
+[submodule "EventEMin"]
+	path = EventEMin
+	url = https://github.com/ImperialCollegeLondon/EventEMin.git
