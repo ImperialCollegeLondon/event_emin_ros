@@ -1,17 +1,11 @@
 #ifndef EVENT_EMIN_ROS_H
 #define EVENT_EMIN_ROS_H
 
-#include <cv_bridge/cv_bridge.h>
 #include <dvs_msgs/Event.h>
 #include <dvs_msgs/EventArray.h>
-#include <message_filters/subscriber.h>
-#include <message_filters/sync_policies/approximate_time.h>
-#include <message_filters/synchronizer.h>
 #include <ros/ros.h>
 #include <sensor_msgs/CameraInfo.h>
-#include <sensor_msgs/Image.h>
 
-#include <opencv2/opencv.hpp>
 #include <string>
 
 #include "EventEMin.h"
