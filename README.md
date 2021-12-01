@@ -56,10 +56,11 @@ For example, assuming you are already running the `rpg_dvs_ros` package, to esti
 The estimated variables are published by default to the topic `/event_emin_ros/vars`, and whose type is a standard vector (see [message type](msg/Vars.msg)).
 
 ### Launch Files
-[Launch files](launch) are also provided for convenience:
+[Launch files](launch) are also provided for convenience. For example:
   ```bash
-  roslaunch event_model_ros model.launch model:=<model>
+  roslaunch event_emin_ros global_motion.launch model:=<model> camera_ns:=<camera>
   ```
+assumes another node is publishing `camera_info` and `events` messages, either from a live camera of a bag file, on the `camera_ns` namespace (by default the camera namespace is `/camera`).
 The following models are currently supported: `affinity`, `isometry`, `rotation`, `similarity`, `translation2d`.
 
 ## License
