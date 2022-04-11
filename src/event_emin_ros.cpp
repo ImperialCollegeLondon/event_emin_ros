@@ -62,7 +62,7 @@ GlobalMotion<M>::GlobalMotion(ros::NodeHandle& nh, ros::NodeHandle& nhPriv)
     r.sleep();
   }
 
-  const Vector<T, NDims> scale(camParams_.diagonal().template head<NDims>());
+  const Vector<T, NDims> scale(Vector<T, NDims>::Ones());
 
   dispersion_ = new Dispersion(
       camParams_, scale, typename Dispersion::Params(T(1.0e-6), 10, wSize_),
